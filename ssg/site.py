@@ -13,7 +13,7 @@ class Site:
     def load_parser(self, extension):
         for parser in self.parsers:
             if parser.valid_extension(extension):
-                return parsers
+                return parser
 
     def run_parser(self, path):
         parser = self.load_parser(path.suffix)
@@ -28,4 +28,4 @@ class Site:
             if path.is_dir():
                 self.create_dir(path)
             elif path.is_file():
-                self.runparser(path)
+                self.run_parser(path)
